@@ -176,7 +176,7 @@ async function importMembers(tenantId: string) {
 
     await upsert(
       User,
-      { wixId: m.id },
+      { tenantId, email: email.toLowerCase() },
       {
         tenantId,
         email: email.toLowerCase(),
@@ -212,7 +212,7 @@ async function importStaff(tenantId: string) {
 
     await upsert(
       User,
-      { wixId: s.id },
+      { tenantId, email: s.email.toLowerCase() },
       {
         tenantId,
         email: s.email.toLowerCase(),
